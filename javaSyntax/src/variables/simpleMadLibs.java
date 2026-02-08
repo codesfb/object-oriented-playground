@@ -13,7 +13,7 @@ public class simpleMadLibs {
 
 
 
-        String phrase = "The " + adjective + "student " + verb + "to the " + noun;
+        String phrase = "The " + adjective + " student " + verb + " to the " + noun;
         System.out.println(phrase);
         scanner.close();
     }
