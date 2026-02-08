@@ -1,15 +1,14 @@
 import java.util.Scanner;
-public class exercice {
+public class exercicegrade {
     static void main() {
     String nomeAluno;
     double nota1, nota2, media ;
     Scanner scanner = new Scanner(System.in);
-    System.out.println("Nome do aluno:");
+    System.out.print("Nome do aluno:");
     nomeAluno = scanner.nextLine();
 
-    System.out.println("nota 1:");
-    nota1 = scanner.nextDouble();
-        System.out.println("nota 2:");
+    System.out.print("nota 1:");
+    nota1 = scanner.nextDouble();System.out.println("nota 2:");
     nota2 = scanner.nextDouble();
 
     media = (nota1 + nota2) / 2;
