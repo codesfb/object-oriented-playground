@@ -21,46 +21,45 @@ import java.util.Scanner;
 public class Ex04 {
 
     public static void main(String[] args) {
-        //Leia o input
-        //Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
-        //Escreva o resultado da chamada do método compute() aqui
+        // Leia o input
+        // Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
+        // Escreva o resultado da chamada do método compute() aqui
         try (final Scanner scanner = new Scanner(System.in);) {
-            if(scanner.hasNextInt()){
+            if (scanner.hasNextInt()) {
                 final int n = scanner.nextInt();
                 final int c = scanner.nextInt();
                 final int m = scanner.nextInt();
                 final Ex04 ex04 = new Ex04();
-                System.out.println(ex04.compute(n,c,m));
-            }else {
+                System.out.println(ex04.compute(n, c, m));
+            } else {
                 System.out.println("Erro");
             }
-        }catch (InputMismatchException e) {
+        } catch (InputMismatchException e) {
             System.out.println("Erro");
         }
     }
+
     int compute(int n, int c, int m) {
-        int chocaleteExtra =0, 
-        qtdTotalChocolate=0;
+        /* 
+        n = total gasto
+        c preço do chocolate 
+        m cada m um novo chocolarte 
+
+        */
+
+        if(n<c) return 0;
+        int chocolatesComprados = n/c;
+        int embalagens = chocolatesComprados;
+        int chocolatesComidos = chocolatesComprados;
 
 
-       if(n==0) return 0;
 
+        while(embalagens >= m){
+            int novosChocolates = embalagens /m;
+            chocolatesComidos+= novosChocolates;
+            embalagens=novosChocolates+ (embalagens % m);
 
-       qtdTotalChocolate = n / c;
-        
-
-      
-
-
-
-            chocaleteExtra = qtdTotalChocolate / m;
-           
-            qtdTotalChocolate+=chocaleteExtra;
-
-                
-
-
-       return qtdTotalChocolate;
-
+        }
+        return chocolatesComidos;
     }
 }

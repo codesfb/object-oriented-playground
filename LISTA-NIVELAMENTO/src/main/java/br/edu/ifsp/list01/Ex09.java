@@ -1,5 +1,6 @@
 package br.edu.ifsp.list01;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 /*
@@ -21,53 +22,72 @@ import java.util.Scanner;
 public class Ex09 {
 
     public static void main(String[] args) {
-        //Leia o input
-        //Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
-        //Escreva o resultado da chamada do método compute() aqui
+        // Leia o input
+        // Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
+        // Escreva o resultado da chamada do método compute() aqui
 
-    final Scanner scanner = new Scanner(System.in);
-    final int[] input = scanner.nextInt();
+        final Scanner scanner = new Scanner(System.in);
+        // int tamanho = scanner.nextInt(); ???
+        final int[] input = new int[1000];// tamanho fixo
+        int i = 0;
+        while (true) {
+            int idade = scanner.nextInt();
+            
+            if (idade <0){
+               input[i] = -1;
 
-    final Ex09 ex09 = new Ex09();
-    System.out.println(ex09.compute(int[] input));
-    scanner.close();
 
+                break;}
+            input[i] = idade;
+
+            i++;
+
+           
+        }
+        final Ex09 ex09 = new Ex09();
+        System.out.println(ex09.compute(input));
+        scanner.close();
     }
 
     String compute(int[] input) {
-       //criar variaveis 
-    int somaIdades = 0;
-    double mediaDasIdades=0.0;
-    int maioresDeIdade=0;
-    int qtdIdosos=0;
-    double porcentagemIdosos= 0.0;
-    int contador= 0;
+        // criar variaveis
+        int somaIdades = 0;
+        double mediaDasIdades = 0.0;
+        int maioresDeIdade = 0;
+        int qtdIdosos = 0;
+        double porcentagemIdosos = 0.0;
+        int contador = 0;
 
-    //percorrer o array 
-    int i =0;
-    while(input[i] != -1 ){
+        // percorrer o array
+        int i = 0;
+        while (true) {
 
-        
-        somaIdades += input[i];
-        if(input[i] >= 18 ){maioresDeIdade++;}
-        if(input[i]>= 75){
-            qtdIdosos++;
+            if(input[i] < 0) break;
 
+            somaIdades += input[i];
+            if (input[i] >= 18) {
+                maioresDeIdade++;
+            }
+            if (input[i] > 75) {
+                qtdIdosos++;
+
+            }
+
+
+
+            contador++;
+            i++;
         }
+        
+        if (contador == 0) return "0.00 0 0.00%";
 
-        contador++;    
-        i++;
-    }
+        mediaDasIdades =(double) somaIdades / contador;
 
-    mediaDasIdades= somaIdades/ contador;
+        porcentagemIdosos = ((double) qtdIdosos / contador) * 100;
 
-    porcentagemIdosos = qtdIdosos/ contador;
-
-
-    // retornar os 3 valores 
-    return mediaDasIdades, maioresDeIdade, porcentagemIdosos;
-
-
+         return String.format("%.2f %d %.2f%%", mediaDasIdades, maioresDeIdade,
+         porcentagemIdosos );
+    
 
     }
 }

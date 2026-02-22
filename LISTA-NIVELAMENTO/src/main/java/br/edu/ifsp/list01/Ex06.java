@@ -45,14 +45,18 @@ public class Ex06 {
     }
 
     String compute(double L, double a, double c, double m) {
-        int qtdLatas, areaTotal ; double custoTotal;
-        areaTotal =(int)  (L* a);
+        double areaTotal = L * a;
+        double divisao = areaTotal / m;
+        int  qtdLatas = (int) divisao;
 
+        if (divisao > qtdLatas) {
+            qtdLatas++;
+        }
 
-        qtdLatas =(int) (areaTotal/m);        
-        custoTotal= qtdLatas*c;
+        double custoTotal = qtdLatas * c;
+        return String.format("%d %.2f", qtdLatas, custoTotal);
 
-
-        return String.format(" %d %.2f",qtdLatas, custoTotal  );
+       
+        
     }
 }
