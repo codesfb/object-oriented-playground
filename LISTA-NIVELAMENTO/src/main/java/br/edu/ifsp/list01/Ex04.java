@@ -39,16 +39,28 @@ public class Ex04 {
         }
     }
     int compute(int n, int c, int m) {
-       if(n==0 && c==0 && m==0) return 0;
-       int qtdChocolate = n / c;
-       if (m != 0){qtdChocolate+=1;}
-
-       int tracaEmbalagem = qtdChocolate / m;
-
-       qtdChocolate += tracaEmbalagem;
+        int chocaleteExtra =0, 
+        qtdTotalChocolate=0;
 
 
-       return qtdChocolate;
+       if(n==0) return 0;
+
+
+       qtdTotalChocolate = n / c;
+        
+
+      
+
+
+
+            chocaleteExtra = qtdTotalChocolate / m;
+           
+            qtdTotalChocolate+=chocaleteExtra;
+
+                
+
+
+       return qtdTotalChocolate;
 
     }
 }

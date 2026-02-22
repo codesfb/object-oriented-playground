@@ -1,5 +1,8 @@
 package br.edu.ifsp.list01;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 /*
     A avenida principal da cidade de Algoritmopolis possui limite de velocidade de L km/h.
     Se o motorista ultrapassar essa velocidade, é aplicado uma multa de R$ M, mais R$ A
@@ -26,11 +29,51 @@ public class Ex05 {
         //Leia o input
         //Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
         //Escreva o resultado da chamada do método compute() aqui
+
+
+/*         
+        try (final Scanner scanner = new Scanner(System.in);) {
+            if(scanner.hasNextInt()){
+                final int L = scanner.nextInt();
+                final double m = scanner.nextDouble();
+                final double  a = scanner.nextDouble();
+                final int v = scanner.nextInt();
+                
+
+                final Ex05 ex05 = new Ex05();
+                System.out.println(ex05.compute(L,m,a,v));
+            }else {
+                System.out.println("Erro");
+            }
+        }catch (InputMismatchException e) {
+            System.out.println("Erro");
+        }
+            */
+
+    final Scanner scanner = new Scanner(System.in);
+    final int L = scanner.nextInt();
+    final double m = scanner.nextDouble();
+    final double  a = scanner.nextDouble();
+    final int v = scanner.nextInt();
+    final Ex05 ex05 = new Ex05();
+    System.out.println(ex05.compute(L,m,a,v));
+    scanner.close();
+
+
+
+
     }
+    
 
     String compute(int L, double m, double a, int v) {
-        String output =  null;
-        //put your logic here
-        return output;
+       double saida= 0.0;
+
+       if(v > L){
+        saida = m+(a * (v-L));
+
+       }
+       return String.format("%.2f", saida);
+      
+
     }
 }
