@@ -1,4 +1,6 @@
-]]package br.edu.ifsp.list01;
+package br.edu.ifsp.list01;
+
+import java.util.Scanner;
 
 /*
     Você está na Austrália treinando cangurus para se locomoverem em linha reta. Você quer saber se dois cangurus
@@ -26,14 +28,44 @@
 */
 public class Ex10 {
     public static void main(String[] args) {
-        //Leia o input
-        //Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
-        //Escreva o resultado da chamada do método compute() aqui
+        // Leia o input
+        // Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
+        // Escreva o resultado da chamada do método compute() aqui
+        final Scanner scanner = new Scanner(System.in);
+        final int x1 = scanner.nextInt();
+        final int v1 = scanner.nextInt();
+        final int x2 = scanner.nextInt();
+        final int v2 = scanner.nextInt();
+        final Ex10 ex10 = new Ex10();
+        System.out.println(ex10.compute(x1, v1, x2, v2));
+        scanner.close();
+
     }
 
     String compute(int x1, int v1, int x2, int v2) {
-        String output = null;
-        //put your logic here
-        return output;
+        // int locais1 = x1;
+        // int locais2 = x1;
+        if (x1 <= x2 && v1 <= v2 || x1 <= v2 && x2 <= x1)
+            return "NAO"; // nunca vai alcançar
+
+        // if (x1 == x2)
+        // return "SIM"; //caso onde ja começam no mesmo lugar então se encontram
+
+        // if(v1 % 2 == 0 && v2 % 2 ==1) return "NAO";
+
+        // locais1 += v1;
+        // locais2 += v2;
+        // while (locais1 != locais2) {
+        // locais1 += v1;
+        // locais2 += v2;
+
+        // if (locais1 == locais2)
+        // return "SIM";
+        // }
+
+        if ((v1 < v2) && (x2 - x1) % (v1 - v2) == 0)
+            return "SIM";
+
+        return "NAO";
     }
 }
