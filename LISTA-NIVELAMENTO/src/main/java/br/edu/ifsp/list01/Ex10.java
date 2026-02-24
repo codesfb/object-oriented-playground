@@ -43,27 +43,14 @@ public class Ex10 {
     }
 
     String compute(int x1, int v1, int x2, int v2) {
-        // int locais1 = x1;
-        // int locais2 = x1;
+     
         if (x1 <= x2 && v1 <= v2 || x1 <= v2 && x2 <= x1)
             return "NAO"; // nunca vai alcançar
 
-        // if (x1 == x2)
-        // return "SIM"; //caso onde ja começam no mesmo lugar então se encontram
-
-        // if(v1 % 2 == 0 && v2 % 2 ==1) return "NAO";
-
-        // locais1 += v1;
-        // locais2 += v2;
-        // while (locais1 != locais2) {
-        // locais1 += v1;
-        // locais2 += v2;
-
-        // if (locais1 == locais2)
-        // return "SIM";
-        // }
-
-        if ((v1 < v2) && (x2 - x1) % (v1 - v2) == 0)
+        //if (v1 < v2) return "SIM";
+            
+            
+        if(  (x2 - x1) % (v1 - v2) == 0)
             return "SIM";
 
         return "NAO";
