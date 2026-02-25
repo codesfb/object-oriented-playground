@@ -21,31 +21,23 @@ public class Ex01 {
     public static final int DAYS_IN_WEEK = 7;
 
     public static void main(String[] args) {
-
-
-        final int[] temperatures = new int[DAYS_IN_WEEK];
         final Scanner scanner = new Scanner(System.in);
-
-        for (int i = 0; i < temperatures.length; i++) {
-            temperatures[i] = scanner.nextInt();
-        }
-
+        int[] temperaturas = new int[DAYS_IN_WEEK];
+        for(int i =0; i < DAYS_IN_WEEK; i++) temperaturas[i]= scanner.nextInt();
+        scanner.close();
         final Ex01 ex01 = new Ex01();
-        System.out.println(ex01.compute(temperatures));
+        System.out.println(ex01.compute(temperaturas));
     }
 
-    int compute(int[] temperatures) {
-        int temperaturesAboveAverage = 0;
-        double sumOfTemperatures = 0;
+    int compute(int[] temperaturas) {
+       int acimaDaMedia =0;
+       int acc=0;
+       for(int i =0; i < DAYS_IN_WEEK; i++) acc+=temperaturas[i];
 
-        for (int temperature : temperatures)
-            sumOfTemperatures += temperature;
+       float media = acc/DAYS_IN_WEEK;
 
-        final double meanOfTemperatures = sumOfTemperatures / DAYS_IN_WEEK;
+       for(int i =0; i < DAYS_IN_WEEK; i++) if(temperaturas[i] > media ) acimaDaMedia++;
 
-        for (int temperature : temperatures)
-            if(temperature > meanOfTemperatures) temperaturesAboveAverage++;
-
-        return temperaturesAboveAverage;
+        return acimaDaMedia;
     }
 }
