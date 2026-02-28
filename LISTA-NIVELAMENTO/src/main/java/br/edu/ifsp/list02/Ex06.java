@@ -1,5 +1,8 @@
 package br.edu.ifsp.list02;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 /*
     Faça um programa que leia um valor inteiro N. Após isso, leia dois vetores A e B de tamanho N. Em seguida, o programa
     deve criar um vetor C com os elementos de A e B intercalados.
@@ -20,14 +23,36 @@ package br.edu.ifsp.list02;
  */
 public class Ex06 {
     public static void main(String[] args) {
-        //Leia o input
-        //Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
-        //Escreva o resultado da chamada do método compute() aqui
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] arrayA = new int[n];
+        int[] arrayB = new int[n];
+
+        scanner.close();
+        final Ex06 ex06 = new Ex06();//
+        System.out.println(ex06.compute(arrayA, arrayB));
+
     }
 
     String compute(int[] arrayA, int[] arrayB) {
-        String output = null;
-        //put your logic here
-        return output;
+        int[] arrayC = new int[arrayA.length * 2];
+        for (int i = 0; i < arrayA.length; i++) {
+
+            arrayC[i + i] = arrayA[i];
+            arrayC[i + i + 1] = arrayB[i];
+
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int v : arrayC) {
+            sb.append(v).append(" "); 
+        }
+
+        String resultado = sb.toString().trim();
+
+        return resultado;
+
     }
+
 }
