@@ -17,35 +17,37 @@ public class Ex03 {
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
         final int[] firstFive = new int[5];
-        
-        try {
-            for(int i = 0; i < 5; i++) {
-                if (scanner.hasNextInt()) {
-                    firstFive[i] = scanner.nextInt();
-                } else {
-                    System.out.println("Erro");
-                    return;
-                }
+        for (int i = 0; i < firstFive.length; i++) {
+            if (scanner.hasNextInt()) {
+                firstFive[i] = scanner.nextInt();
             }
-            
-            List<Integer> otherIntsList = new ArrayList<>();
-            while(scanner.hasNextInt()){
-                otherIntsList.add(scanner.nextInt());
-            }
-            
-            int[] otherInts = new int[otherIntsList.size()];
-            for(int i=0; i<otherIntsList.size(); i++) otherInts[i] = otherIntsList.get(i);
-            
-            final Ex03 ex03 = new Ex03();
-            System.out.println(ex03.compute(firstFive, otherInts));
-        } catch (Exception e) {
-            System.out.println("Erro");
-        } finally {
-            scanner.close();
         }
+
+        List<Integer> otherIntsList = new ArrayList<>();
+        while (scanner.hasNextInt()) {
+            otherIntsList.add(scanner.nextInt());
+        }
+        int[] otherInts = new int[otherIntsList.size()];
+        for (int i = 0; i < otherIntsList.size(); i++) {
+            otherInts[i] = otherIntsList.get(i);
+        }
+
+        scanner.close();
+
+        final Ex03 ex03 = new Ex03();
+        System.out.println(ex03.compute(firstFive,otherInts));
+
+
     }
 
     String compute(int[] firstFive, int[] otherInts) {
+        if (firstFive.length != 5) return "Erro";
+        for (int i = 0; i < firstFive.length; i++) {
+            for (int j = i + 1; j < firstFive.length; j++) {
+                if (firstFive[i] == firstFive[j]) return "Erro";
+            }
+        }
+
         int[] vetor = new int[10];
         int count = 0;
         
@@ -54,6 +56,7 @@ public class Ex03 {
         }
 
         StringBuilder output = new StringBuilder();
+        output.append(formatArray(vetor, count));
         
         for (int val : otherInts) {
             int foundIndex = -1;
@@ -75,12 +78,11 @@ public class Ex03 {
                 }
             }
 
-            if (output.length() > 0) output.append("\n");
-            output.append(formatArray(vetor, count));
+            if (count == 0) break;
 
-            if (count == 0 || count == 10) {
-                break;
-            }
+            output.append("\n").append(formatArray(vetor, count));
+
+            if (count == 10) break;
         }
         
         return output.toString();

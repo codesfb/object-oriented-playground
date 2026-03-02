@@ -38,8 +38,8 @@ public class Ex06 {
         int[] arrayC = new int[arrayA.length * 2];
         for (int i = 0; i < arrayA.length; i++) {
 
-            arrayC[i + i] = arrayA[i];
-            arrayC[i + i + 1] = arrayB[i];
+            arrayC[2*i] = arrayA[i];
+            arrayC[2 * i + 1] = arrayB[i];
 
         }
 

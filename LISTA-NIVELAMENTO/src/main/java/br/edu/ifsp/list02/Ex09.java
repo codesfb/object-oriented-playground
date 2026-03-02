@@ -1,5 +1,7 @@
 package br.edu.ifsp.list02;
 
+import java.util.Scanner;
+
 /*
     Uma loja especializada em vendas pela internet está desenvolvendo drones para entrega de caixas com as compras dos
     clientes. Cada caixa tem a forma de um paralelepípedo reto retângulo (ou seja, no formato de um tijolo).
@@ -43,14 +45,31 @@ package br.edu.ifsp.list02;
  */
 public class Ex09 {
     public static void main(String[] args) {
-        //Leia o input
-        //Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
-        //Escreva o resultado da chamada do método compute() aqui
+
+        Scanner scanner = new Scanner(System.in);
+        int A = scanner.nextInt();
+        int B = scanner.nextInt();
+        int C = scanner.nextInt();
+        int H = scanner.nextInt();
+        int L = scanner.nextInt();
+
+        scanner.close();
+        final Ex09 ex09 = new Ex09();//
+        System.out.println(ex09.compute(A, B, C, H, L));
     }
 
     String compute(int a, int b, int c, int h, int l) {
-        String output = null;
-        //put your logic here
-        return output;
+        if ((a <= h && b <= l) || (b <= h && a <= l)) {
+            return "S";
+        }
+        else if ((a <= h && c <= l) || (c <= h && a <= l)) {
+            return "S";
+        }
+        else if ((c <= h && b <= l) || (b <= h && c <= l)) {
+            return "S";
+        }
+        else {
+            return "N";
+        }
     }
 }

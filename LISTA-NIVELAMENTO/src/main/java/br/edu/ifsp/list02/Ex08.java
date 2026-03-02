@@ -1,5 +1,7 @@
 package br.edu.ifsp.list02;
 
+import java.util.Scanner;
+
 /*
     Todos os Natais o Papai Noel se prepara para embarcar em seu trenó todos os N presentes a serem entregues.
     A área em que os presentes ficam no trenó pode ser dividida em dois lados: o lado A e o lado B. Para que o trenó
@@ -30,14 +32,43 @@ package br.edu.ifsp.list02;
  */
 public class Ex08 {
     public static void main(String[] args) {
-        //Leia o input
-        //Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
-        //Escreva o resultado da chamada do método compute() aqui
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        int[] giftsWeights = new int[N];
+
+        for (int i = 0; i < N; i++) {
+            giftsWeights[i] = scanner.nextInt();
+
+        }
+
+        scanner.close();
+
+        final Ex08 ex08 = new Ex08();//
+        System.out.println(ex08.compute(giftsWeights));
+
     }
 
     String compute(int[] giftsWeights) {
-        String output = null;
-        //put your logic here
-        return output;
+        int le = 0;
+        int ld = 0;
+       for (int i = 0; i < giftsWeights.length; i++) {
+            int pesoAtual = giftsWeights[i];
+            if (calculaDiferenca(le + pesoAtual, ld) <= 5) {
+                le += pesoAtual;
+            } 
+            else if (calculaDiferenca(le, ld + pesoAtual) <= 5) {
+                ld += pesoAtual;
+            } 
+            else {
+                return "N";//alguem vai fica sem presente 
+            }
+        }
+        return "S";
+    }
+
+    public static int calculaDiferenca(int x, int y) {
+        int d = x - y;
+        return (d<0) ?-d:d;
+
     }
 }
