@@ -1,5 +1,5 @@
-public class dataTypes {
-    static void main() {
+public class DataTypes {
+    public static void main(String[] args) {
         System.out.println("We gonna start by int dayta type");
         int number = 5;
         System.out.println("This is the number" + number);

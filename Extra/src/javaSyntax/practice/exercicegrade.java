@@ -2,7 +2,8 @@ package practice;
 
 import java.util.Scanner;
 public class exercicegrade {
-    static void main() {
+   
+    public static void main(String[] args) {
     String nomeAluno;
     double nota1, nota2, media ;
     Scanner scanner = new Scanner(System.in);
@@ -25,6 +26,6 @@ public class exercicegrade {
     scanner.close();
 
 
-    }
+        }
 
 }
