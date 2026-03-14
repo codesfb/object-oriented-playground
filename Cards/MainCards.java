@@ -1,7 +1,4 @@
-import java.util.Arrays;
-import java.util.List;
-
-public class Main {
+public class MainCards {
     public static void main(String[] args) {
         Deck myDeck = new Deck();
 
