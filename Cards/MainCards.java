@@ -10,11 +10,11 @@ public class MainCards {
         System.out.println("--- Mão pessoa 1 ---");
         for (Card a : hand1 ){
             a.flip(); // Revela a carta
-            System.out.println(a);
+            System.out.println(a.describeCard());
         }
 
         System.out.println("Cartas restantes: " + myDeck.size());
-
+        /*
         Card[] hand2 = myDeck.drawCards(7);
 
         System.out.println("--- Mão pessoa 2 ---");
@@ -23,7 +23,7 @@ public class MainCards {
             System.out.println(a);
         }
         System.out.println("Cartas restantes: " + myDeck.size());
-
+        */
 
 
     }

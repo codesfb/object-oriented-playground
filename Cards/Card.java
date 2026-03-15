@@ -15,16 +15,15 @@ public class Card {
         this.visible = !this.visible;
     }
 
-//    @Override
-//    public String getStateAsString(){/// ahhh ta
-//        return visible? rank + "of" + suit: "Not visible";
-//
-//
-//    }
-
+    public String describeCard() {
+        return rank + " of " + suit;
+    }
+    /*
     @Override
     public String toString() {
         return rank + " of " + suit;
     }
+    */
+
 
 }
