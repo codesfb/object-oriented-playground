@@ -8,7 +8,7 @@ public class Player {
         this.name = name;
         this.number = number;
         this.position = position;
-        this.isFielded = false;
+        this.isFielded = true;
 
     }
 
@@ -16,8 +16,20 @@ public class Player {
         return this.name;
     }
 
+    public boolean isFielded() {
+        return this.isFielded;
+    }
+
+    public void setFielded(boolean isFielded) {
+        this.isFielded = isFielded;
+    }
+
+
+
+
+
     public String getStateAsString(){
-        return name + " " + number + " " + position + " " + isFielded;
+        return name + " " + number + " " + position + " " + " | Em campo: " + (isFielded ? "Sim" : "Não");
     }
 
 
