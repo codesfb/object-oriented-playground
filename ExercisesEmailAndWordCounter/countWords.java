@@ -1,6 +1,7 @@
 package fabricStaticWrappers;
 
 public class countWords {
+    //TODO exatamente ...
     public static int countWord(String phrase, String word ){
         phrase = phrase.replace(".","");
         phrase = phrase.replace(",","");

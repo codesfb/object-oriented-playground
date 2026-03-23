@@ -1,6 +1,7 @@
 package fabricStaticWrappers;
 
 public class validEmail {
+    //TODO dá para melhorar isso aqui de acordo com as regras de criação de e-mails válidos
     public  static boolean isValidmail(String mail) {
         for (int i = 0; i < mail.length(); i++) {
             if (mail.charAt(i) == '@' && mail.substring(mail.length() - 4).equals(".com")) {
