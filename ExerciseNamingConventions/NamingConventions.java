@@ -9,7 +9,8 @@ public class NamingConventions {
     public  static boolean isFollowingConvention(String name,  Convention convention){
         if(!isValidJavaIdentifier(name)) return false;
 
-
+        //TODO esse é um exercício para praticar manipulação de Strings. Legal que você usou regex, mas
+        // a ideia era avaliar implementação com caracteres.
         return switch (convention) {
             case VARIABLE, METHOD -> Pattern.matches("^[a-z][a-zA-Z0-9]*$", name);
             case CONSTANT -> Pattern.matches("^[A-Z][A-Z0-9_]*$", name);
@@ -28,6 +29,7 @@ public class NamingConventions {
         char first = identifier.charAt(0);
 
 
+        //TODO pode extrair como um método
         if (!((first >= 'a' && first <= 'z') ||
                 (first >= 'A' && first <= 'Z') ||
                 (first == '$') ||
@@ -39,6 +41,7 @@ public class NamingConventions {
         for (int i = 1; i < identifier.length(); i++) {
             char c = identifier.charAt(i);
 
+            //TODO pode extrair como um método
             boolean isLetter = (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
             boolean isDigit = (c >= '0' && c <= '9');
             boolean isSpecial = (c == '$' || c == '_');
@@ -74,11 +77,7 @@ public class NamingConventions {
                 word = word.substring(0, index)
                         + Character.toUpperCase(word.charAt(index + 1))
                         + word.substring(index + 2); //don't know about that but kind works out
-
-
             }
-
-
         }
 
         return word;
@@ -90,13 +89,8 @@ public class NamingConventions {
         for (int i = variable.length()-1; i > 0 ; i--) {
                 if(Character.isUpperCase(sb.charAt(i))){
                     sb.insert(i,'_');
-
                 }
         }
         return sb.toString().toUpperCase();
     }
-
-
-
-
 }

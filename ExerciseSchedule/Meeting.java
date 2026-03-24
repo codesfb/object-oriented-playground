@@ -27,9 +27,9 @@ public class Meeting {
         return description;
     }
 
+    //TODO posicione métodos com implementação sua sempre antes dos getters, geralmente gerados pelo IDE.
     public long durationInMinutes(){
         return Duration.between(this.startTime, this.endingTime).toMinutes();//duration is an object thats why i need to convert
     }
-
 
 }
