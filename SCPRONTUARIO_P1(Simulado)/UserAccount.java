@@ -52,7 +52,7 @@ public class UserAccount {
     public String showTimeLine(){
         StringBuilder string = new StringBuilder();
         string.append("Timeline:");
-        for (int i = 0; i < timeLine.length; i++) {
+        for (int i = 0; i < numOfTimeLine; i++) {
            string.append("\n").append(timeLine[i]).append("\n");
         }
         return string.toString();
