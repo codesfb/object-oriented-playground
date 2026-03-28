@@ -15,7 +15,7 @@ void main() {
 
 
     IO.println(playlist.getPlaylistAsString());
-    IO.println("Duração total da playlist " + playlist.getTotalDurationMinutes());
+    IO.println("Duração total da playlist " + playlist.getTotalDurationFormatted() + " min");
     IO.println(playlist.getOwner());// como faz pra n mostrar User@38af3868
 
 

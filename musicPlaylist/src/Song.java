@@ -20,7 +20,11 @@ public class Song {
         return (durationSeconds <= 0)?null:new Song(title, artist, durationSeconds,genre);
     }
 
-    //formatSongInfo
+    @Override
+    public String toString() {
+        // Formato que será usado dentro do loop da Playlist
+        return String.format("%s - %s (%ds)", this.title, this.artist, this.durationSeconds);
+    }
 
 
     public String formatSongInfo() {

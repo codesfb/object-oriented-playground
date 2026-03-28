@@ -1,3 +1,4 @@
+import java.time.Duration;
 import java.time.LocalDate;
 
 public class Playlist {
@@ -32,12 +33,19 @@ public class Playlist {
         songs[--songCount]=null;
 
     };
-    public int getTotalDurationMinutes(){
-        int acc=0;
+    public String getTotalDurationFormatted() {
+        int totalSeconds = 0;
         for (int i = 0; i < songCount; i++) {
-            acc+=songs[i].getDurationSeconds();
+            totalSeconds += songs[i].getDurationSeconds();
         }
-        return acc / 60;
+
+        // Criamos um objeto Duration a partir dos segundos totais
+        Duration duration = Duration.ofSeconds(totalSeconds);
+
+        long minutes = duration.toMinutes();
+        int seconds = duration.toSecondsPart(); // Pega apenas o que restou (0-59)
+
+        return String.format("%d:%02d", minutes, seconds);
     }
 
 
@@ -60,10 +68,7 @@ public class Playlist {
         return creationDate;
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
-    }
+
 
     public String getOwner () {
         return String.format("Owner: %s", this.owner );
