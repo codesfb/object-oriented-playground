@@ -33,8 +33,6 @@ public class Hand {
         return getWinner() != null;
     }
 
-
-
     @Override
     public String toString() {
         return "Hand{"

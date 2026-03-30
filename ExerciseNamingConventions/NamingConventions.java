@@ -6,38 +6,57 @@ public class NamingConventions {
 
     //https://www.vogella.com/tutorials/JavaRegularExpressions/article.html
     //https://blog.jetbrains.com/idea/2024/01/evolution-of-the-switch-construct-in-java-why-should-you-care/
+//    public  static boolean isFollowingConvention(String name,  Convention convention){
+//        if(!isValidJavaIdentifier(name)) return false;
+//
+//        //TODO esse é um exercício para praticar manipulação de Strings. Legal que você usou regex, mas
+//        // a ideia era avaliar implementação com caracteres.
+//        return switch (convention) {
+//            case VARIABLE, METHOD -> Pattern.matches("^[a-z][a-zA-Z0-9]*$", name);
+//            case CONSTANT -> Pattern.matches("^[A-Z][A-Z0-9_]*$", name);
+//            case CLASS -> Pattern.matches("^[A-Z][a-zA-Z0-9]*$", name);
+//        };
+//    }
+
     public  static boolean isFollowingConvention(String name,  Convention convention){
         if(!isValidJavaIdentifier(name)) return false;
 
-        //TODO esse é um exercício para praticar manipulação de Strings. Legal que você usou regex, mas
-        // a ideia era avaliar implementação com caracteres.
         return switch (convention) {
-            case VARIABLE, METHOD -> Pattern.matches("^[a-z][a-zA-Z0-9]*$", name);
-            case CONSTANT -> Pattern.matches("^[A-Z][A-Z0-9_]*$", name);
-            case CLASS -> Pattern.matches("^[A-Z][a-zA-Z0-9]*$", name);
+            case VARIABLE, METHOD -> isAllvalid(name);
+            case CONSTANT -> isUpperCaseLetter(name);
+            case CLASS ->isAllvalid(name);
         };
     }
 
+    public static boolean isUpperCaseLetter(String identifier){
+        for (int i = 1; i < identifier.length(); i++) {
+            char c = identifier.charAt(i);
+            boolean isUpperLetter = (c >= 'A' && c <= 'Z');
+            if (isUpperLetter) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-    /*
+
+    }
+
     //character by character
     public static boolean isValidJavaIdentifier(String identifier) {
         if (identifier == null || identifier.isEmpty()) {
             return false;
         }
-
         char first = identifier.charAt(0);
-
-
         //TODO pode extrair como um método
-        if (!((first >= 'a' && first <= 'z') ||
-                (first >= 'A' && first <= 'Z') ||
-                (first == '$') ||
-                (first == '_'))) {
-            return false;
-        }
+        if (!isValidFistCharacter(first)) return false;
 
+        if (!isAllvalid(identifier)) return false;
 
+        return true;
+    }
+
+    private static boolean isAllvalid(String identifier) {
         for (int i = 1; i < identifier.length(); i++) {
             char c = identifier.charAt(i);
 
@@ -46,37 +65,50 @@ public class NamingConventions {
             boolean isDigit = (c >= '0' && c <= '9');
             boolean isSpecial = (c == '$' || c == '_');
 
-            if (!(isLetter || isDigit || isSpecial)) {
-                return false;
+            if ((isLetter || isDigit || isSpecial)) {
+                return true;
             }
         }
-
-        return true;
+        return false;
     }
-    */
+
+    private static boolean isValidFistCharacter(char first) {
+        if (((first >= 'a' && first <= 'z') ||
+                (first >= 'A' && first <= 'Z') ||
+                (first == '$') ||
+                (first == '_'))) {
+            return true;
+        }
+        return false;
+    }
+
 
     //https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Character.html#isJavaIdentifierPart(char)
 
-    public static boolean isValidJavaIdentifier(String identifier){
-        if(identifier == null) return false;
-        if(!Character.isJavaIdentifierPart(identifier.charAt(0))) return false;
-        for (int i = 0; i < identifier.length(); i++) {
-            if(!Character.isJavaIdentifierPart(identifier.charAt(i))) return false;
 
-        }
-        return true;
-    }
+
+
+
+
+//    public static boolean isValidJavaIdentifier(String identifier){
+//        if(identifier == null) return false;
+//        if(!Character.isJavaIdentifierPart(identifier.charAt(0))) return false;
+//        for (int i = 0; i < identifier.length(); i++) {
+//            if(!Character.isJavaIdentifierPart(identifier.charAt(i))) return false;
+//
+//        }
+//        return true;
+//    }
 
     public static String fromConstToVariable(String word){
         word = word.toLowerCase();
-        //StringBuilder sb = new StringBuilder(word); Should i try with ?
         int index = 0;
         for (int i = 0; i < word.length(); i++) {
             if(word.charAt(i) == '_'){
                 index = i;
                 word = word.substring(0, index)
                         + Character.toUpperCase(word.charAt(index + 1))
-                        + word.substring(index + 2); //don't know about that but kind works out
+                        + word.substring(index + 2); 
             }
         }
 

@@ -15,7 +15,7 @@ public class Principal {
             game.play();
         }
 
-        
+
         System.out.println("Pontos de "+ game.getPlayer1().getName() + " " +game.getPlayer1().getScore());
         System.out.println("Pontos de "+ game.getPlayer2().getName() + " "+ game.getPlayer2().getScore());
 

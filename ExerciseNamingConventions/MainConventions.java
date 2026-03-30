@@ -1,4 +1,4 @@
-public class Main {
+public class MainConventions {
     public static void main(String[] args) {
 
         System.out.println("=== CONVERSION TESTS ===");

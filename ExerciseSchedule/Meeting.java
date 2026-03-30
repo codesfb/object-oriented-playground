@@ -6,15 +6,20 @@ public class Meeting {
     private LocalTime startTime;
     private LocalTime endingTime;
 
-    //when to build with constructor  method ? and when not to ?
+
     public Meeting(String description, LocalTime startTime,LocalTime endingTime  ){
         this.description = description;
         this.startTime = startTime;
         this.endingTime = endingTime;
 
     }
+    //TODO posicione métodos com implementação sua sempre antes dos getters, geralmente gerados pelo IDE.//done
 
-    //in case i need
+    public long durationInMinutes(){
+        return Duration.between(this.startTime, this.endingTime).toMinutes();
+    }
+
+
     public LocalTime getStartTime() {
         return startTime;
     }
@@ -27,9 +32,6 @@ public class Meeting {
         return description;
     }
 
-    //TODO posicione métodos com implementação sua sempre antes dos getters, geralmente gerados pelo IDE.
-    public long durationInMinutes(){
-        return Duration.between(this.startTime, this.endingTime).toMinutes();//duration is an object thats why i need to convert
-    }
+
 
 }
