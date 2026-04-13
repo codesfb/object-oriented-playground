@@ -8,6 +8,7 @@ public class MainEmployee {
 
         Employee[] funcionarios = {f1, f2, f3};
 
+        //TODO esse tipo de info é justamente o que deveria vir dos toString, tal que você poderia apenas fazer print(e) e ele imprimiria certinho de acordo com o tipo do objeto e seu estado.
         for (Employee e : funcionarios) {
             System.out.println("Id: " + e.getId() +" \nNome: " + e.getName());
             System.out.println("Job: " + e.getJobTitle());

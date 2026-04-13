@@ -1,5 +1,7 @@
 
 //package main.java.Figure;
+
+// melhor se você selar a classe, mas está correto.
 public abstract class Figure {
     private double y;
     private double x;
@@ -8,7 +10,6 @@ public abstract class Figure {
         this.y = y;
         this.x = x;
     }
-
 
     public abstract double area();
 
