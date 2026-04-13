@@ -21,7 +21,8 @@ public final class FullTimeEmployee extends Employee {
         return "Employee= " + super.toString() +
                 "monthlySalary=" + monthlySalary;
     }
-    //é necesario sobrescrever o equals ?
+
+    //é necesario sobrescrever o equals ? // TODO, como o id está em Employee, você pode deixar o equals lá. Ver objetos de valor vs entidades no slide.
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;

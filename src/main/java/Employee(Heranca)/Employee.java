@@ -13,10 +13,7 @@ public abstract sealed class Employee permits FullTimeEmployee, PerHourEmployee 
         this.dateOfEmployment = dateOfEmployment;
     }
 
-
-
     public abstract double salary();
-
 
     @Override
     public String toString() {
@@ -28,8 +25,9 @@ public abstract sealed class Employee permits FullTimeEmployee, PerHourEmployee 
                 '}';
     }
 
-    public String getId() {
+    //TODO equals e hashcode
 
+    public String getId() {
         return id;
     }
 

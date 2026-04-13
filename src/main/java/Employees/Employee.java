@@ -1,9 +1,9 @@
 package main.java.Employees;
 
 public class Employee {
-    String employeeId, name, jobTitle;
-    double salary;
-    int yearsOfService;
+    private String employeeId, name, jobTitle;
+    private double salary;
+    private int yearsOfService;
 
     public Employee() {
     } // default constructor
@@ -14,7 +14,7 @@ public class Employee {
         this.salary = salary;
         this.jobTitle = jobTitle;
         this.yearsOfService = yearsOfService;
-
-
     }
+
+    //TODO getters, setters para o que pode mudar, toString, equals e hashcode.
 }

@@ -26,6 +26,7 @@ public final class PerHourEmployee extends Employee {
 
     }
 
+    //TODO revisar no slide o que é o equals e qual a diff entre objeto de valor e entidade.
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
