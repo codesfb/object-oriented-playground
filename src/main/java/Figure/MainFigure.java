@@ -25,7 +25,7 @@ public class MainFigure {
         double allAreas=0.0;
         for(Figure figure : figuras){
             allAreas+=figure.area();
-            System.out.println(figure );
+                System.out.println(figure );
         }
         System.out.printf("Soma de todas as areas %.2f", allAreas);
 

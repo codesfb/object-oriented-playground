@@ -21,18 +21,17 @@ public final class FullTimeEmployee extends Employee {
         return "Employee= " + super.toString() +
                 "monthlySalary=" + monthlySalary;
     }
-    //é necesario sobrescrever o equals ?
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         FullTimeEmployee that = (FullTimeEmployee) o;
         return Double.compare(monthlySalary, that.monthlySalary) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(monthlySalary);
+        return Objects.hash(super.hashCode(), monthlySalary);
     }
-
-
 }

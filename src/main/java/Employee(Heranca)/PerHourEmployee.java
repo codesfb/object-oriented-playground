@@ -2,8 +2,8 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public final class PerHourEmployee extends Employee {
-    private double hourlyRate;
-    private int workedHour;
+    private final double hourlyRate;
+    private final int workedHour;
 
     public PerHourEmployee(String id, String name, String jobTitle, LocalDate dateOfEmployment, double hourlyRate, int workedHour) {
         super(id, name, jobTitle, dateOfEmployment);
@@ -29,13 +29,14 @@ public final class PerHourEmployee extends Employee {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         PerHourEmployee that = (PerHourEmployee) o;
         return Double.compare(hourlyRate, that.hourlyRate) == 0 && workedHour == that.workedHour;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(hourlyRate, workedHour);
+        return Objects.hash(super.hashCode(), hourlyRate, workedHour);
     }
 
     public double getHourlyRate() {
