@@ -1,5 +1,7 @@
+package Employee_Heranca;
 import java.time.LocalDate;
 import java.util.Objects;
+
 
 public final class FullTimeEmployee extends Employee {
     final private double monthlySalary;

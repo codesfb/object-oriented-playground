@@ -1,4 +1,4 @@
-package main.java.PedraPapelTesoura;
+package PedraPapelTesoura;
 
 public class RodadaPPT {
     private Player player1;
@@ -9,9 +9,9 @@ public class RodadaPPT {
     public RodadaPPT(Player player1, Player player2) {
         this.player1 = player1;
         this.player2 = player2;
-        this.rodada[vencedoresIndex] = getWinner();
+       // this.rodada[vencedoresIndex] = getWinner();
     }
-    public boolean isDone(){}
+    //public boolean isDone(){}
     public void getWinner() {
 
     }

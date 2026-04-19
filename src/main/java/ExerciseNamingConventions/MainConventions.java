@@ -1,4 +1,5 @@
-package main.java.ExerciseNamingConventions;
+import ExerciseNamingConventions.Convention;
+import ExerciseNamingConventions.NamingConventions;
 
 public class MainConventions {
     public static void main(String[] args) {

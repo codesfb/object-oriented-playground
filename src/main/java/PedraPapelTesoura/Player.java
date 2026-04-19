@@ -1,4 +1,4 @@
-package main.java.PedraPapelTesoura;
+package PedraPapelTesoura;
 
 public class Player {
     private String name;

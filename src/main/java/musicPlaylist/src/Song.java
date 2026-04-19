@@ -1,4 +1,4 @@
-package main.java.musicPlaylist.src;
+package musicPlaylist.src;
 
 public class Song {
 

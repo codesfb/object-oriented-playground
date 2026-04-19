@@ -1,6 +1,4 @@
-
-
-import main.java.ExerciseNamingConventions.Convention;
+package ExerciseNamingConventions;
 
 public class NamingConventions {
     private Convention convention;

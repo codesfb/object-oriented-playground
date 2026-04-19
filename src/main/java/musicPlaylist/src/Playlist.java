@@ -1,4 +1,4 @@
-package main.java.musicPlaylist.src;
+package musicPlaylist.src;
 
 import java.time.Duration;
 import java.time.LocalDate;

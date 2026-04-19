@@ -1,4 +1,3 @@
-package main.java.PedraPapelTesoura;
-
+package PedraPapelTesoura;
 public enum PPT {PEDRA, PAPEL, TESOURA
 }

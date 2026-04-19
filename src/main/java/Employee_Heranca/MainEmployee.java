@@ -1,7 +1,11 @@
+import Employee_Heranca.Employee;
+import Employee_Heranca.FullTimeEmployee;
+import Employee_Heranca.PerHourEmployee;
+
 import java.time.LocalDate;
 
 public class MainEmployee {
-    static void main() {
+    public static void main(String[] args) {
 
 
 

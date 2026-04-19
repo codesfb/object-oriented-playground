@@ -1,5 +1,8 @@
+package Employee_Heranca;
 import java.time.LocalDate;
 import java.util.Objects;
+
+
 
 public abstract sealed class Employee permits FullTimeEmployee, PerHourEmployee {
     private final String id;
