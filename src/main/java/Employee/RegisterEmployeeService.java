@@ -7,11 +7,12 @@ public class RegisterEmployeeService {
         this.repository = repository;
     }
 
-    public void register(Employee e){
-        if(repository.findById(e.getId())==null){
+    public boolean register(Employee e){
+        if(repository.findById(e.getId()) == null){
             repository.save(e);
-        }else return;
-
+            return true; // Sucesso
+        }
+        return false; // Não salvou porque já existia
     }
 
 }
