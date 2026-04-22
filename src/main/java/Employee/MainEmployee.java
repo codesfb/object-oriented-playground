@@ -1,14 +1,9 @@
-import Employee_Heranca.Employee;
-import Employee_Heranca.FullTimeEmployee;
-import Employee_Heranca.PerHourEmployee;
-
+import Employee.Employee;
+import Employee.FullTimeEmployee;
+import Employee.PerHourEmployee;
 import java.time.LocalDate;
 
-public class MainEmployee {
-    public static void main(String[] args) {
-
-
-
+void main(String[] args) {
         FullTimeEmployee f1 = new FullTimeEmployee("123", "Ana", "Dev", LocalDate.now(), 5000.0);
         PerHourEmployee f2 = new PerHourEmployee("456", "Beto", "Designer", LocalDate.now(), 50.0, 160);
         FullTimeEmployee f3 = new FullTimeEmployee("123", "Ana 2", "Dev Senior", LocalDate.now(), 7000.0);
@@ -23,6 +18,5 @@ public class MainEmployee {
             System.out.println("========================================\n");
 
         }
-
-    }
 }
+

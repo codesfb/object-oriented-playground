@@ -1,4 +1,4 @@
-package Employee_Heranca;
+package Employee;
 import java.time.LocalDate;
 import java.util.Objects;
 
