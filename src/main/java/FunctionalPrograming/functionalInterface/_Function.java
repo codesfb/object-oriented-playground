@@ -1,4 +1,4 @@
-package FunctionalPrograming.Imperative.functionalInterface;
+package FunctionalPrograming.functionalInterface;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;
