@@ -4,12 +4,20 @@ import java.util.Objects;
 
 
 public final class FullTimeEmployee extends Employee {
-    final private double monthlySalary;
+
+    private double monthlySalary;
+    public void setMonthlySalary(double monthlySalary) {
+        this.monthlySalary = monthlySalary;
+    }
+
+
 
     public FullTimeEmployee(String id, String name, String jobTitle, LocalDate dateOfEmployment, double monthlySalary) {
         super(id, name, jobTitle, dateOfEmployment);
         this.monthlySalary = monthlySalary;
     }
+
+
 
     //Não tem bonus nem desconto então ficaria assim mesmo basicamente um get?
     @Override
