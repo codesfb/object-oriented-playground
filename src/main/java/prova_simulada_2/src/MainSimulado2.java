@@ -1,9 +1,15 @@
+
+import prova_simulada_2.src.Declaracao;
+import prova_simulada_2.src.DeclaracaoCompleta;
+import prova_simulada_2.src.DeclaracaoSimplificada;
+import prova_simulada_2.src.GastoEducacao;
+import prova_simulada_2.src.GastoSaude;
+
 import java.util.*;
 
-
 //TODO implemetar classe generica
-private static Map<String, Declaracao> bancoDados = new LinkedHashMap<>();
-private static Scanner scanner = new Scanner(System.in);
+private static final Map<String, Declaracao> bancoDados = new LinkedHashMap<>();
+private static final Scanner scanner = new Scanner(System.in);
 
 void main(String[] args) {
         boolean rodando = true;
@@ -37,8 +43,8 @@ void main(String[] args) {
     }
 
     private static void cadastrarDeclaracao(boolean completa) {
-        System.out.print("ID da Declaração: ");
-        String id = scanner.nextLine();
+        //System.out.print("ID da Declaração: ");
+        //String id = scanner.nextLine();
         System.out.print("Ganhos Tributáveis: ");
         double ganhos = lerDouble();
         System.out.print("Valor já pago no ano: ");
@@ -47,7 +53,7 @@ void main(String[] args) {
         Declaracao dec = completa ?
                 new DeclaracaoCompleta(ganhos, pago) :
                 new DeclaracaoSimplificada(ganhos, pago);
-
+        String id = String.valueOf(UUID.randomUUID());//just a test
         bancoDados.put(id, dec);
         System.out.println("✓ Declaração salva com sucesso!");
     }

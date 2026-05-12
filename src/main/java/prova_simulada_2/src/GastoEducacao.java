@@ -1,3 +1,5 @@
+package prova_simulada_2.src;
+
 import java.util.Objects;
 
 public final class GastoEducacao extends Gasto {

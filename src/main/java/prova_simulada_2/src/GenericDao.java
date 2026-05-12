@@ -1,3 +1,5 @@
+package prova_simulada_2.src;
+
 import java.util.*;
 
 public class GenericDao<K, T> {
@@ -7,7 +9,7 @@ public class GenericDao<K, T> {
     public Optional<T> findById(K id) { return Optional.ofNullable(storage.get(id)); }
     public List<T> findAll() { return new ArrayList<>(storage.values()); }
     public void delete(K id) { storage.remove(id); }
-    public void update(K id, T obj) { if(storage.containsKey(id)) storage.put(id, obj); }
+    public void update(K id, T obj) { storage.replace(id, obj); }
 
     public T buscar(K id) throws EntidadeNaoEncontradaException {
         T resultado = storage.get(id);

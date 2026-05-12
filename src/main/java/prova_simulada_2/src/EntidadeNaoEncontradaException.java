@@ -1,3 +1,5 @@
+package prova_simulada_2.src;
+
 // Esta classe deve estar em um arquivo chamado EntidadeNaoEncontradaException.java
 public class EntidadeNaoEncontradaException extends Exception {
 

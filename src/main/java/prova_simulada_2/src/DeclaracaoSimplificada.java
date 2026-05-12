@@ -1,5 +1,7 @@
-import java.util.OptionalDouble;
+package prova_simulada_2.src;
+import prova_simulada_2.src.Declaracao;
 
+import java.util.OptionalDouble;
 public non-sealed class DeclaracaoSimplificada extends Declaracao {
     public DeclaracaoSimplificada(double ganhoTributavel, double valorPago) {
         super(ganhoTributavel, valorPago);

@@ -42,7 +42,7 @@ public class Company {
 
 
     }
-    //TODO remake this
+
     Set<Employee> company = new LinkedHashSet<>();
 
     public boolean hire(Employee...employee){

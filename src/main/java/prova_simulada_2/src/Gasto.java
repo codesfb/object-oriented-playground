@@ -1,3 +1,4 @@
+package prova_simulada_2.src;
 import java.util.Objects;
 
 public sealed class Gasto permits   GastoSaude, GastoEducacao{
