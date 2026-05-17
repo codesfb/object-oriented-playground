@@ -16,11 +16,9 @@ public class Company {
 
         var comp = new Company();
 
-        if (comp.hire(ada,dijkstra, huffman)) {
+        if (comp.hire(ada,dijkstra, huffman))
             System.out.println(" Contraado com sucesso");
-        } else {
-            System.out.println("Erro ao cotratar");
-        }
+
 
         comp.getEmployees();
         //o my days who i will fire now?
@@ -46,10 +44,19 @@ public class Company {
     Set<Employee> company = new LinkedHashSet<>();
 
     public boolean hire(Employee...employee){
+        if(employee == null) throw new IllegalArgumentException("O funcionario não pode ser nulo");
+        if(employee.length ==0) return false;
+        for (Employee employee1 : employee) {
+            if(employee1==null){
+                throw new IllegalArgumentException("Um dos funcionarios esta nulo");
+            }
+
+        }
         return Collections.addAll(this.company, employee);
     }
 
     public void fire(String id){
+            if(id.isEmpty()) throw new IllegalArgumentException("id vazio, not possible to fire emplyee");
             company.removeIf(e -> e.getId().equals(id));
     }
 
