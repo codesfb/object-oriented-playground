@@ -25,6 +25,8 @@ public  class Employee implements Comparable<class07.Employee> {
             this.paychecks = new ArrayList<>();
         }
 
+
+
         @Override
         public String toString() {
             return String.format("""

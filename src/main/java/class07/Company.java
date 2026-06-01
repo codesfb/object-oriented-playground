@@ -2,48 +2,22 @@ package class07;
 
 //import Employee.Employee;
 
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Company {
 
-    static void main() {
 
-        var ada = new Employee("01", "Ada Lovelace", "Computer Programmer", 10_000.0, LocalDate.now());
-        var dijkstra = new Employee("03", "Edsger Dijkstra", "Computer Scientist", 10_400.0, LocalDate.now().minusYears(2));
-        var huffman = new Employee("02", "David Huffman", "Computer Scientist", 10_700.0, LocalDate.now().minusYears(1));
-
-
-        var comp = new Company();
-
-        if (comp.hire(ada,dijkstra, huffman))
-            System.out.println(" Contraado com sucesso");
-
-
-        comp.getEmployees();
-        //o my days who i will fire now?
-
-        comp.fire("01");
-        System.out.println(ada.getName() +  " fired");
-
-        comp.getEmployees("Computer Scientist");
-        System.out.println("Payment");
-        System.out.println(comp.pay("01"));
-        System.out.println(comp.pay("02"));
-        System.out.println(comp.pay("03"));
-
-        System.out.println("Increase salary");
-        System.out.println("Hufman salary before " + huffman.getSalary());
-        comp.increaseSalary("02",20_000.0);
-        System.out.println("Hufman salary after " + huffman.getSalary());
-        System.out.println("Average salary " + comp.averageSalary("Computer Scientist"));
-
-
-    }
 
     Set<Employee> company = new LinkedHashSet<>();
 
-    public boolean hire(Employee...employee){
+    public boolean hire(Employee...employee) throws SQLException {
         if(employee == null) throw new IllegalArgumentException("O funcionario não pode ser nulo");
         if(employee.length ==0) return false;
         for (Employee employee1 : employee) {
@@ -52,6 +26,8 @@ public class Company {
             }
 
         }
+
+        save(employee);
         return Collections.addAll(this.company, employee);
     }
 
@@ -104,5 +80,31 @@ public class Company {
     }
 
 
+    public static void save(Employee...employee) throws SQLException{
 
-}
+        String sql = "INSERT INTO employees (id, name, jobTitle, salary, dateOfEmployment,skills) VALUES (?, ?, ?, ?, ?,?)";
+        try (final Connection connection = DriverManager.getConnection("jdbc:sqlite:database.db");
+             final PreparedStatement statement = connection.prepareStatement(sql)) {
+            for (Employee employee1 : employee) {
+
+
+                statement.setString(1, employee1.getId());
+                statement.setString(2, employee1.getName());
+                statement.setString(3, employee1.getJobTitle());
+                statement.setDouble(4, employee1.getSalary());
+                statement.setString(5, employee1.getDateOfEmployment().toString());
+                String skills = employee1.getSkills().toString();
+                statement.setString(6, skills);
+
+            }
+
+            statement.executeUpdate(); // executes the statement
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        }
+
+    }
+
+
+
