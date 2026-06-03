@@ -1,9 +1,9 @@
-package main.java.Team;
+package Team.modell;
 
 public class Player {
-    private  String name;
-    private  int number;
-    private String position;
+    private final  String name;
+    private final  int number;
+    private final String position;
     private boolean isFielded;
     public Player(String name, int number, String position){
         this.name = name;

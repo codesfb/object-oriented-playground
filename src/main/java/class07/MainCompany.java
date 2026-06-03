@@ -5,14 +5,14 @@ import java.sql.SQLException;
 
 void main() throws SQLException {
 
-    var ada = new Employee("01", "Ada Lovelace", "Computer Programmer", 10_000.0, LocalDate.now());
+    var adaL = new Employee("01", "Ada Lovelace", "Computer Programmer", 10_000.0, LocalDate.now());
     var dijkstra = new Employee("03", "Edsger Dijkstra", "Computer Scientist", 10_400.0, LocalDate.now().minusYears(2));
     var huffman = new Employee("02", "David Huffman", "Computer Scientist", 10_700.0, LocalDate.now().minusYears(1));
 
 
     var comp = new Company();
 
-    if (comp.hire(ada,dijkstra, huffman))
+    if (comp.hire(adaL,dijkstra, huffman))
         System.out.println("Contraado com sucesso");
 
 
@@ -22,7 +22,7 @@ void main() throws SQLException {
 
 
     comp.fire("01");
-    System.out.println(ada.getName() +  " fired");
+    System.out.println(adaL.getName() +  " fired");
 
     comp.getEmployees("Computer Scientist");
     System.out.println("Payment");

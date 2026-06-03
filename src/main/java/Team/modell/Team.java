@@ -1,4 +1,4 @@
-package main.java.Team;
+package Team.modell;
 
 public class Team {
     private String name;
@@ -10,15 +10,7 @@ public class Team {
         this.baseLocation = baseLocation;
         this.coachName = coachName;
     }
-    /*
-    *
-    + addPlayer(player: Player): void
-    + removePlayer(player: Player): void
-    + substitute(substitute: Player, starter: Player): void
-    + setCaptain(captain: Player): void
-    + getFieldedPlayers(): Players[]
-    + getOutfieldedPlayers(): Players[]
-     */
+
     Player[] players = new Player[18];
     private int count = 0;
     public void addPlayer(Player player){
@@ -32,6 +24,19 @@ public class Team {
         }
 
     }
+
+
+    @Override
+    public String toString() {
+        return "Team{" +
+                "name='" + name + '\'' +
+                ", baseLocation='" + baseLocation + '\'' +
+                ", coachName='" + coachName + '\'' +
+                ", captain=" + captain +
+                ", count=" + count +
+                '}';
+    }
+
     public void removePlayer(Player player){
         if(players.length == 0) return;
         for(int i = 0; i < players.length; i++){
@@ -106,5 +111,35 @@ public class Team {
         }
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getBaseLocation() {
+        return baseLocation;
+    }
+
+    public void setBaseLocation(String baseLocation) {
+        this.baseLocation = baseLocation;
+    }
+
+    public String getCoachName() {
+        return coachName;
+    }
+
+    public void setCoachName(String coachName) {
+        this.coachName = coachName;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
 }
